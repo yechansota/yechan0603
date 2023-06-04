@@ -1,27 +1,30 @@
-# Data Science with Python
-## Data science is an interdisciplinary field that extracts knowledge and insights from structured and unstructured data using scientific methods, algorithms, and systems. It encompasses statistics, data analysis, machine learning, and other related methods to understand and analyze real-world phenomena. By employing techniques from mathematics, statistics, computer science, and information science, data science is considered a "fourth paradigm" of science, driven by the impact of information technology.
+# Final Assignment - Statistics for Data Science with Python - Yechan Kim
+##Load Dataset
+import pandas as pd
+import numpy as np
+import seaborn as sns
+importscipy.stats.
+import statsmodels.api as sm
 
-## In today's rapidly evolving landscape, data science offers promising career opportunities. Skilled data professionals understand the importance of moving beyond traditional skills such as data analysis, data mining, and programming. To succeed in this field, data scientists must master the entire data science life cycle, possess flexibility, and maximize returns at each phase. The ability to process, analyze, visualize, and communicate data effectively is becoming increasingly crucial.
+boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ST0151EN-SkillsNetwork/labs/boston_housing.csv'
+boston_df = pd.read_csv(boston_url)
+boston_df.describe()
+data = {
+    'Unnamed: 0': ['count', 'mean', 'std', 'min', '25%', '50%', '75%', 'max'],
+    'CRIM': [506.000, 3.613524, 8.601545, 0.006320, 0.082045, 0.256510, 3.677082, 88.976200],
+    'ZN': [506.000, 11.363636, 23.322453, 0.000000, 0.000000, 0.000000, 12.500000, 100.000000],
+    'INDUS': [506.000, 11.136779, 6.860353, 0.460000, 5.190000, 9.690000, 18.100000, 27.740000],
+    'CHAS': [506.000, 0.069170, 0.253994, 0.000000, 0.000000, 0.000000, 0.000000, 1.000000],
+    'NOX': [506.000, 0.554695, 0.115878, 0.385000, 0.449000, 0.538000, 0.624000, 0.871000],
+    'RM': [506.000, 6.284634, 0.702617, 3.561000, 5.885500, 6.208500, 6.623500, 8.780000],
+    'AGE': [506.000, 68.574901, 28.148861, 2.900000, 45.025000, 77.500000, 94.075000, 100.000000],
+    'DIS': [506.000, 3.795043, 2.105710, 1.129600, 2.100175, 3.207450, 5.188425, 12.126500],
+    'RAD': [506.000, 9.549407, 8.707259, 1.000000, 4.000000, 5.000000, 24.000000, 24.000000],
+    'TAX': [506.000, 408.237154, 168.537116, 187.000000, 279.000000, 330.000000, 666.000000, 711.000000],
+    'PTRATIO': [506.000, 18.455534, 2.164946, 12.600000, 17.400000, 19.050000, 20.200000, 22.000000],
+    'LSTAT': [506.000, 12.653063, 7.141062, 1.730000, 6.950000, 11.360000, 16.955000, 37.970000],
+    'MEDV': [506.000, 22.532806, 9.197104, 5.000000, 17.025000, 21.200000, 25.000000, 50.000000]
+}
 
-## Data scientists play a vital role in identifying relevant questions, sourcing and managing data from various sources, and utilizing their business acumen and analytical skills to mine, clean, and present data. They synthesize the results and communicate them to key stakeholders, influencing strategic decision-making in organizations. Programming skills (such as SAS, R, and Python), statistical and mathematical proficiency, storytelling, data visualization, Hadoop, SQL, and machine learning are essential for data scientists.
-
-## Data analysts bridge the gap between data scientists and business analysts. They receive questions from organizations, analyze and organize data, and align the findings with high-level business strategies. Data analysts translate technical analysis into actionable insights and effectively communicate them to diverse stakeholders. Programming skills (SAS, R, Python), statistical and mathematical proficiency, data wrangling, and data visualization are key skills for data analysts.
-
-## Data engineers specialize in managing vast amounts of rapidly changing data. They focus on developing, deploying, managing, and optimizing data pipelines and infrastructure, enabling data scientists to query and analyze the data. Data engineers require programming languages (such as Java and Scala), expertise in NoSQL databases (like MongoDB and Cassandra DB), and familiarity with frameworks like Apache Hadoop.
-
-Data science professionals are highly valued in the job market, with competitive salaries and numerous opportunities in big and small companies across various industries. Gaining specialized skills within the data science field, such as machine learning, can further distinguish data scientists and open doors to impactful roles.
-| Role           | Skills Required                                           |
-|----------------|-----------------------------------------------------------|
-| Data Scientist | Programming skills (SAS, R, Python), statistical and       |
-|                | mathematical skills, storytelling and data visualization, |
-|                | Hadoop, SQL, machine learning                             |
-|----------------|-----------------------------------------------------------|
-| Data Analyst   | Programming skills (SAS, R, Python), statistical and       |
-|                | mathematical skills, data wrangling, data visualization   |
-|----------------|-----------------------------------------------------------|
-| Data Engineer  | Programming languages (Java, Scala), NoSQL databases       |
-|                | (MongoDB, Cassandra DB), frameworks (Apache Hadoop)        |
-
-
-## Contrast with recent data in Minnesota:
-While the table above provides general skills required for data science roles, it's important to note that the specific requirements and job opportunities may vary based on location. Recent data for Minnesota suggests a growing demand for data science professionals with expertise in programming languages such as Python and R, statistical analysis, data visualization, and machine learning. The Minnesota job market for data scientists, data analysts, and data engineers is experiencing significant growth, with competitive salaries and opportunities in various industries. Local knowledge and understanding the specific needs of the Minnesota market can further enhance your career prospects in the data science field.
+df = pd.DataFrame(data)
+print(df)
