@@ -33,8 +33,11 @@ boston_df.head()
 3	0.03237	0	2.18	0	0.458	6.998	45.8	6.0622	3	222	18.7	2.94	33.4
 4	0.06905	0	2.18	0	0.458	7.147	54.2	6.0622	3	222	18.7	5.33	36.2
 5	0.02985	0	2.18	0	0.458	6.43	58.7	6.0622	3	222	18.7	5.21	28.7
-
-
+![image](https://github.com/yechansota/yechan0603/assets/134902281/725cc319-1cf2-4a11-88b7-a329f66df2ce)
+## Task 4 :Generate Descriptive Statistics and Visualizations
+For the "Median value of owner-occupied homes" provide a boxplot
+Column MEDV --> Median value of owner-occupied homes in $1000's As it is not mentioend to make any kind of grouping, I only plotted this single value as a box plot
+print (boston_df['MEDV'])
 
 table = PrettyTable()
 table.field_names = list(data.keys())
