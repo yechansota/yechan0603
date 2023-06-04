@@ -1,21 +1,57 @@
-# Final Assignment - Statistics for Data Science with Python - Yechan Kim
-##Load Dataset
+# Statistics for Data Science with Python - Yechan Kim
+## Load Dataset
 import pandas as pd
 import numpy as np
 import seaborn as sns
 importscipy.stats.
 import statsmodels.api as sm
 
+## Task 1 : Get Familar With Data
+· CRIM - per capita crime rate by town
+· ZN - proportion of residential land zoned for lots over 25,000 sq.ft.
+· INDUS - proportion of non-retail business acres per town.
+· CHAS - Charles River dummy variable (1 if tract bounds river; 0 otherwise)
+· NOX - nitric oxides concentration (parts per 10 million)
+· RM - average number of rooms per dwelling
+· AGE - proportion of owner-occupied units built prior to 1940
+· DIS - weighted distances to five Boston employment centres
+· RAD - index of accessibility to radial highways
+· TAX - full-value property-tax rate per $10,000
+· PTRATIO - pupil-teacher ratio by town
+· LSTAT - % lower status of the population
+· MEDV - Median value of owner-occupied homes in $1000's
+## Task 2 : Create an IBM account
+As this was an optional step, I skipped this one as I had created such an account previously. Also, I will use my Github account for uploading this file.
+## Task 3: Load in the Dataset in your Jupyter Notebook
 boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ST0151EN-SkillsNetwork/labs/boston_housing.csv'
-boston_df = pd.read_csv(boston_url)
-boston_df.describe()
+boston_df=pd.read_csv(boston_url)
+boston_df.head()
 
-|        | Unnamed: 0 |     CRIM |       ZN |    INDUS |     CHAS |      NOX |       RM |       AGE |       DIS |       RAD |       TAX |   PTRATIO |     LSTAT |      MEDV |
-|--------|------------|----------|----------|----------|----------|----------|----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| count  | 506.000000 | 506.0000 | 506.0000 | 506.0000 | 506.0000 | 506.0000 | 506.0000 | 506.00000 | 506.00000 | 506.00000 | 506.00000 | 506.00000 | 506.00000 |
-| mean   | 252.500000 |   3.6135 |  11.3636 |  11.1368 |  0.06917 |  0.55469 |  6.28463 |  68.57490 |   3.79504 |   9.54941 | 408.23715 |  18.45553 |  12.65306 |  22.53281 |
-| std    | 146.213884 |   8.6015 |  23.3225 |   6.8604 |  0.25399 |  0.11588 |  0.70262 |  28.14886 |   2.10571 |   8.70726 | 168.53712 |   2.16495 |   7.14106 |   9.19710 |
-| min    |   0.000000 | 0.006320 |   0.0000 |   0.4600 |  0.00000 |  0.38500 |  3.56100 |   2.90000 |   1.12960 |   1.00000 | 187.00000 |  12.60000 |   1.73000 |   5.00000 |
-| 25%    | 126.250000 | 0.082045 |   0.0000 |   5.1900 |  0.00000 |  0.44900 |  5.88550 |  45.02500 |   2.10017 |   4.00000 | 279.00000 |  17.40000 |   6.95000 |  17.02500 |
-| 50%    | 252.500000 | 0.256510 |   0.0000 |   9.6900 |  0.00000 |  0.53800 |  6.20850 |  77.50000 |   3.20745 |   5.00000 | 330.00000 |  19.05000 |  11.36000 |  21.20000 |
-| 75%    | 378.750
+data = {
+    'CRIM': [0.00632, 0.02731, 0.02729, 0.03237, 0.06905, 0.02985],
+    'ZN': [18, 0, 0, 0, 0, 0],
+    'INDUS': [2.31, 7.07, 7.07, 2.18, 2.18, 2.18],
+    'CHAS': [0, 0, 0, 0, 0, 0],
+    'NOX': [0.538, 0.469, 0.469, 0.458, 0.458, 0.458],
+    'RM': [6.575, 6.421, 7.185, 6.998, 7.147, 6.43],
+    'AGE': [65.2, 78.9, 61.1, 45.8, 54.2, 58.7],
+    'DIS': [4.09, 4.9671, 4.9671, 6.0622, 6.0622, 6.0622],
+    'RAD': [1, 2, 2, 3, 3, 3],
+    'TAX': [296, 242, 242, 222, 222, 222],
+    'PTRATIO': [15.3, 17.8, 17.8, 18.7, 18.7, 18.7],
+    'LSTAT': [4.98, 9.14, 4.03, 2.94, 5.33, 5.21],
+    'MEDV': [24, 21.6, 34.7, 33.4, 36.2, 28.7]
+
+ax = boston.boxplot(column="Age", by="Sex")
+
+
+## Become familiar with the dataset
+
+
+Generate Descriptive Statistics and Visualizations
+Question 1: For the 'Median value of owner-occupied homes' provide a boxplot
+ax = sns.boxplot(y = 'MEDV', data = boston_df)
+ax.set_title('Owner-occupied homes')
+Text(0.5, 1.0, 'Owner-occupied homes')
+
+boston_df.describe()
