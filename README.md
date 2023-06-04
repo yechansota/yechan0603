@@ -178,8 +178,8 @@ if p_value < 0.05:
 else:
     print("Conclusion: There is no significant relationship between Nitric oxide concentrations and proportion of non-retail business acres per town.")
 ### Task 5.4: What is the impact of an additional weighted distance to the five Boston employment centres on the median value of owner occupied homes? (Regression analysis)
-### H0: DIS has no effect on MEDV
-### H1: DIS has an effect on MEDV
+**H0: DIS has no effect on MEDV
+H1: DIS has an effect on MEDV**
 import statsmodels.api as sm
 X = boston_df['DIS']
 y = boston_df['MEDV']
