@@ -37,7 +37,28 @@ boston_df.head()
 ## Task 4 :Generate Descriptive Statistics and Visualizations
 For the "Median value of owner-occupied homes" provide a boxplot
 Column MEDV --> Median value of owner-occupied homes in $1000's As it is not mentioend to make any kind of grouping, I only plotted this single value as a box plot
+= print (boston_df['MEDV'])
+
+
+
+
+
 print (boston_df['MEDV'])
+0      24.0
+1      21.6
+2      34.7
+3      33.4
+4      36.2
+       ... 
+501    22.4
+502    20.6
+503    23.9
+504    22.0
+505    11.9
+Name: MEDV, Length: 506, dtype: float64
+
+
+
 
 table = PrettyTable()
 table.field_names = list(data.keys())
@@ -48,14 +69,3 @@ for i in range(len(data['CRIM'])):
 print(table)
 ax = boston.boxplot(column="Age", by="Sex")
 
-
-## Become familiar with the dataset
-
-
-Generate Descriptive Statistics and Visualizations
-Question 1: For the 'Median value of owner-occupied homes' provide a boxplot
-ax = sns.boxplot(y = 'MEDV', data = boston_df)
-ax.set_title('Owner-occupied homes')
-Text(0.5, 1.0, 'Owner-occupied homes')
-
-boston_df.describe()
