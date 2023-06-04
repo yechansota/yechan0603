@@ -27,6 +27,8 @@ boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud
 boston_df=pd.read_csv(boston_url)
 boston_df.head()
 
+from prettytable import PrettyTable
+
 data = {
     'CRIM': [0.00632, 0.02731, 0.02729, 0.03237, 0.06905, 0.02985],
     'ZN': [18, 0, 0, 0, 0, 0],
@@ -41,7 +43,15 @@ data = {
     'PTRATIO': [15.3, 17.8, 17.8, 18.7, 18.7, 18.7],
     'LSTAT': [4.98, 9.14, 4.03, 2.94, 5.33, 5.21],
     'MEDV': [24, 21.6, 34.7, 33.4, 36.2, 28.7]
+}
 
+table = PrettyTable()
+table.field_names = list(data.keys())
+
+for i in range(len(data['CRIM'])):
+    table.add_row([data[key][i] for key in data.keys()])
+
+print(table)
 ax = boston.boxplot(column="Age", by="Sex")
 
 
