@@ -41,13 +41,7 @@ Skipped as it is optional
 boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ST0151EN-SkillsNetwork/labs/boston_housing.csv'
 boston_df = pd.read_csv(boston_url)
 boston_df.head()
-	CRIM	ZN	INDUS	CHAS	NOX	RM	AGE	DIS	RAD	TAX	PTRATIO	LSTAT	MEDV
-0	0.00632	18	2.31	0	0.538	6.575	65.2	4.09	1	296	15.3	4.98	24
-1	0.02731	0	7.07	0	0.469	6.421	78.9	4.9671	2	242	17.8	9.14	21.6
-2	0.02729	0	7.07	0	0.469	7.185	61.1	4.9671	2	242	17.8	4.03	34.7
-3	0.03237	0	2.18	0	0.458	6.998	45.8	6.0622	3	222	18.7	2.94	33.4
-4	0.06905	0	2.18	0	0.458	7.147	54.2	6.0622	3	222	18.7	5.33	36.2
-5	0.02985	0	2.18	0	0.458	6.43	58.7	6.0622	3	222	18.7	5.21	28.7
+
 ![image](https://github.com/yechansota/yechan0603/assets/134902281/36c150ef-b140-4bf0-b793-e99df6ff3993)
 
 ## Task 4 - Generate Descriptive Statistics and Visualizations
