@@ -26,24 +26,16 @@ As this was an optional step, I skipped this one as I had created such an accoun
 boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ST0151EN-SkillsNetwork/labs/boston_housing.csv'
 boston_df=pd.read_csv(boston_url)
 boston_df.head()
+	CRIM	ZN	INDUS	CHAS	NOX	RM	AGE	DIS	RAD	TAX	PTRATIO	LSTAT	MEDV
+0	0.00632	18	2.31	0	0.538	6.575	65.2	4.09	1	296	15.3	4.98	24
+1	0.02731	0	7.07	0	0.469	6.421	78.9	4.9671	2	242	17.8	9.14	21.6
+2	0.02729	0	7.07	0	0.469	7.185	61.1	4.9671	2	242	17.8	4.03	34.7
+3	0.03237	0	2.18	0	0.458	6.998	45.8	6.0622	3	222	18.7	2.94	33.4
+4	0.06905	0	2.18	0	0.458	7.147	54.2	6.0622	3	222	18.7	5.33	36.2
+5	0.02985	0	2.18	0	0.458	6.43	58.7	6.0622	3	222	18.7	5.21	28.7
+![image](https://github.com/yechansota/yechan0603/assets/134902281/8c98a13d-31c8-488c-b67e-17856d94aea1)
 
-from prettytable import PrettyTable
 
-data = {
-    'CRIM': [0.00632, 0.02731, 0.02729, 0.03237, 0.06905, 0.02985],
-    'ZN': [18, 0, 0, 0, 0, 0],
-    'INDUS': [2.31, 7.07, 7.07, 2.18, 2.18, 2.18],
-    'CHAS': [0, 0, 0, 0, 0, 0],
-    'NOX': [0.538, 0.469, 0.469, 0.458, 0.458, 0.458],
-    'RM': [6.575, 6.421, 7.185, 6.998, 7.147, 6.43],
-    'AGE': [65.2, 78.9, 61.1, 45.8, 54.2, 58.7],
-    'DIS': [4.09, 4.9671, 4.9671, 6.0622, 6.0622, 6.0622],
-    'RAD': [1, 2, 2, 3, 3, 3],
-    'TAX': [296, 242, 242, 222, 222, 222],
-    'PTRATIO': [15.3, 17.8, 17.8, 18.7, 18.7, 18.7],
-    'LSTAT': [4.98, 9.14, 4.03, 2.94, 5.33, 5.21],
-    'MEDV': [24, 21.6, 34.7, 33.4, 36.2, 28.7]
-}
 
 table = PrettyTable()
 table.field_names = list(data.keys())
