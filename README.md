@@ -126,6 +126,13 @@ import statsmodels.api as sm
 chas_0 = boston_df[boston_df['CHAS'] == 0]['MEDV']
 chas_1 = boston_df[boston_df['CHAS'] == 1]['MEDV']
 
+	Unnamed: 0	CRIM	ZN	INDUS	CHAS	NOX	RM	AGE	DIS	RAD	TAX	PTRATIO	LSTAT	MEDV	Age_Group	CHAS_T
+0	0	0.00632	18.0	2.31	0.0	0.538	6.575	65.2	4.0900	1.0	296.0	15.3	4.98	24.0	between 35 and 70 years	FAR
+1	1	0.02731	0.0	7.07	0.0	0.469	6.421	78.9	4.9671	2.0	242.0	17.8	9.14	21.6	70 years and older	FAR
+2	2	0.02729	0.0	7.07	0.0	0.469	7.185	61.1	4.9671	2.0	242.0	17.8	4.03	34.7	between 35 and 70 years	FAR
+3	3	0.03237	0.0	2.18	0.0	0.458	6.998	45.8	6.0622	3.0	222.0	18.7	2.94	33.4	between 35 and 70 years	FAR
+4	4	0.06905	0.0	2.18	0.0	0.458	7.147	54.2	6.0622	3.0	222.0	18.7	5.33	36.2	between 35 and 70 years	FAR
+
 ### Perform t-test assuming unequal variance 
 ### levene_test = scipy.stats.levene(chas_0, chas_1, center='mean')
 ### Check if p-value from Levene's test is less than 0.05 to determine the equality of variances
@@ -180,9 +187,11 @@ else:
 ### Task 5.4: What is the impact of an additional weighted distance to the five Boston employment centres on the median value of owner occupied homes? (Regression analysis)
 **H0: DIS has no effect on MEDV
 H1: DIS has an effect on MEDV**
+
 import statsmodels.api as sm
 X = boston_df['DIS']
 y = boston_df['MEDV']
+
 ### Add an intercept (beta_0) to our model
 X = sm.add_constant(X)
 
@@ -190,5 +199,23 @@ model = sm.OLS(y, X).fit()
 predictions = model.predict(X)
 
 ### Print out the statistics
+**OLS Regression Results**
+Dep. Variable:	MEDV	R-squared:	0.062
+Model:	OLS	Adj. R-squared:	0.061
+Method:	Least Squares	F-statistic:	33.58
+Date:	Sun, 04 Jun 2023	Prob (F-statistic):	1.21e-08
+Time:	15:23:26	Log-Likelihood:	-1823.9
+No. Observations:	506	AIC:	3652.
+Df Residuals:	504	BIC:	3660.
+Df Model:	1		
+Covariance Type:	nonrobust		
+coef	std err	t	P>|t|	[0.025	0.975]
+const	18.3901	0.817	22.499	0.000	16.784	19.996
+DIS	1.0916	0.188	5.795	0.000	0.722	1.462
+Omnibus:	139.779	Durbin-Watson:	0.570
+Prob(Omnibus):	0.000	Jarque-Bera (JB):	305.104
+Skew:	1.466	Prob(JB):	5.59e-67
+Kurtosis:	5.424	Cond. No.	9.32
+
 model.summary()
 DIS coeff is a positive value; statistical difference as p-value < 0.05
