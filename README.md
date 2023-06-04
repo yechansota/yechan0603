@@ -53,21 +53,23 @@ boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud
 boston_df = pd.read_csv(boston_url)
 
 
-boston_df.head()
-
+boston_df.head(5)
 ![image](https://github.com/yechansota/yechan0603/assets/134902281/36c150ef-b140-4bf0-b793-e99df6ff3993)
 
 ## Task 4 - Generate Descriptive Statistics and Visualizations
 ### Task 4.1: For the "Median value of owner-occupied homes," provide a boxplot
 = print (boston_df['MEDV'])
-Name: MEDV, Length: 506, dtype: float64
+![image](https://github.com/yechansota/yechan0603/assets/134902281/9442b569-1472-4f55-a0ea-3dda5f4bff0d)
 sns.boxplot(x=boston_df['MEDV']).set_title("Median value of owner-occupied homes in $1000's")
 plt.show()
 Text(0.5, 1.0, "Median value of owner-occupied homes in $1000's")
+
 ### Task 4.2: Provide a bar plot for the Charles river variable
 Column CHAS --> Charles River dummy variable (1 if tract bounds river; 0 otherwise)
 print (boston_df['CHAS'].median())
 print (boston_df['CHAS'].unique())
+
+![image](https://github.com/yechansota/yechan0603/assets/134902281/748ecf24-2710-4010-a9af-3b777f207fac)
 
 As there are two unique values (0,1) in the CHAS column, I assume to split this data and plot the orrurence of each is to be done for Task 4.2
 ax = boston_df['CHAS'].value_counts().plot(kind='bar', color=['blue', 'green'])
