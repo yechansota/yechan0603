@@ -1,87 +1,50 @@
 # Statistics for Data Science with Python - Yechan Kim
 ## Load Dataset
 import pandas as pd
-import numpy as np
 import seaborn as sns
-importscipy.stats.
-import statsmodels.api as sm
+import matplotlib.pyplot as plt
 
-## Task 1 : Get Familar With Data
-· CRIM - per capita crime rate by town
-· ZN - proportion of residential land zoned for lots over 25,000 sq.ft.
-· INDUS - proportion of non-retail business acres per town.
-· CHAS - Charles River dummy variable (1 if tract bounds river; 0 otherwise)
-· NOX - nitric oxides concentration (parts per 10 million)
-· RM - average number of rooms per dwelling
-· AGE - proportion of owner-occupied units built prior to 1940
-· DIS - weighted distances to five Boston employment centres
-· RAD - index of accessibility to radial highways
-· TAX - full-value property-tax rate per $10,000
-· PTRATIO - pupil-teacher ratio by town
-· LSTAT - % lower status of the population
-· MEDV - Median value of owner-occupied homes in $1000's
-## Task 2 : Create an IBM account
-As this was an optional step, I skipped this one as I had created such an account previously. Also, I will use my Github account for uploading this file.
-## Task 3: Load the Dataset in your Jupyter Notebook
+# Task 3: Load the Dataset in your Jupyter Notebook
 boston_url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ST0151EN-SkillsNetwork/labs/boston_housing.csv'
 boston_df = pd.read_csv(boston_url)
 boston_df.head()
 
-## Task 4: Generate Descriptive Statistics and Visualizations
+# Task 4 - Generate Descriptive Statistics and Visualizations
 
-### Task 4.1: Boxplot for the "Median value of owner-occupied homes"
-# Column MEDV --> Median value of owner-occupied homes in $1000's
-# Since no specific grouping is mentioned, I plotted this single value as a boxplot
-print(boston_df['MEDV'])
+# Task 4.1: For the "Median value of owner-occupied homes," provide a boxplot
 sns.boxplot(x=boston_df['MEDV']).set_title("Median value of owner-occupied homes in $1000's")
+plt.show()
 
+# Task 4.2: Provide a bar plot for the Charles river variable
+ax = boston_df['CHAS'].value_counts().plot(kind='bar', color=['blue', 'green'])
+ax.set_xlabel('CHAS')
+ax.set_ylabel('Count')
+ax.set_title('CHAS distribution bar plot')
+plt.show()
 
-
-## Task 4 - Generate Descriptive Statistics and Visualizations
-### Task 4.1 For the "Median value of owner-occupied homes" provide a boxplot
-Column MEDV --> Median value of owner-occupied homes in $1000's
-As it is not mentioend to make any kind of grouping, I only plotted this single value as a box plot
-= print (boston_df['MEDV'])
-sns.boxplot(x=boston_df['MEDV']).set_title("Median value of owner-occupied homes in $1000's")
-
-
-### Task 4.2 Provide a bar plot for the Charles river variable
-Column CHAS --> Charles River dummy variable (1 if tract bounds river; 0 otherwise)
-print (boston_df['CHAS'].median())
-print (boston_df['CHAS'].unique())
-As there are two unique values (0,1) in the CHAS column, I assume to split this data and plot the orrurence of each is to be done for Task 4.2
-ax = pyplot.bar(boston_df.CHAS.unique(),boston_df.CHAS.value_counts(),color=['blue','green'])
-pyplot.xlabel('CHAS')
-pyplot.ylabel('Count')
-pyplot.title('CHAS distribution bar plot')
-pyplot.xlabel('Charles River dummy variable (1 if tract bounds river; 0 otherwise)')
-
-### Task 4.3 Provide a boxplot for the MEDV variable vs the AGE variable. (Discretize the age variable into three groups of 35 years and younger, between 35 and 70 years and 70 years and older)
-·      MEDV - Median value of owner-occupied homes in $1000's --> y-Axis
-·      AGE - proportion of owner-occupied units built prior to 1940 --> x-Axis
-# Making three groups according to the age
-boston_df.loc[(boston_df['AGE'] <= 35), 'age_group'] = '35 years and younger'
-boston_df.loc[(boston_df['AGE'] > 35)&(boston_df['AGE'] < 70), 'age_group'] = 'between 35 and 70 years'
-boston_df.loc[(boston_df['AGE'] >= 70), 'age_group'] = '70 years and older'
-print (boston_df['age_group'])
+# Task 4.3: Provide a boxplot for the MEDV variable vs the AGE variable (Discretize the age variable into three groups)
+bins = [0, 35, 70, float('inf')]
+labels = ['35 years and younger', 'between 35 and 70 years', '70 years and older']
+boston_df['age_group'] = pd.cut(boston_df['AGE'], bins=bins, labels=labels)
 ax = sns.boxplot(x='age_group', y='MEDV', data=boston_df)
-pyplot.xlabel("proportion of owner-occupied units built prior to 1940")
-pyplot.ylabel("Median value of owner-occupied homes in $1000's")
-### Task 4.4 Provide a scatter plot to show the relationship between Nitric oxide concentrations and the proportion of non-retail business acres per town. What can you say about the relationship?
-·      NOX - nitric oxides concentration (parts per 10 million) --> X
-·      INDUS - proportion of non-retail business acres per town. --> Y
-sns.scatterplot(x='NOX', y='INDUS', data=boston_df).set(title='Relationship between Non-Retail Business acres per Town and Nitric Oxides Concentrations')
-pyplot.xlabel("nitric oxides concentration (parts per 10 million)")
-pyplot.ylabel("proportion of non-retail business acres per town")
+ax.set_xlabel('Age Group')
+ax.set_ylabel("Median value of owner-occupied homes in $1000's")
+plt.show()
 
-What can you say about the relationship?
+# Task 4.4: Provide a scatter plot to show the relationship between Nitric oxide concentrations and the proportion of non-retail business acres per town
+sns.scatterplot(x='NOX', y='INDUS', data=boston_df)
+plt.title('Relationship between Non-Retail Business acres per Town and Nitric Oxides Concentrations')
+plt.xlabel('Nitric oxides concentration (parts per 10 million)')
+plt.ylabel('Proportion of non-retail business acres per town')
+plt.show()
 
-There seems to be a (positive) correlation between Nictirc oxides concentration and the proportion of non-terail business acress. 
-### Task 4.5 Create a histogram for the pupil to teacher ratio variable
-·      PTRATIO - pupil-teacher ratio by town --> this seems to be the variable looked for = "pupil to teacher ratio variable"
+# Task 4.5: Create a histogram for the pupil to teacher ratio variable
 sns.histplot(data=boston_df, x="PTRATIO")
-pyplot.xlabel('pupil-teacher ratio by town')
-pyplot.title("Frequency Plot of Pupil-Teacher Ratio by Town ")
+plt.xlabel('Pupil-teacher ratio by town')
+plt.ylabel('Frequency')
+plt.title('Frequency Plot of Pupil-Teacher Ratio by Town')
+plt.show()
+
 ## Task 5: Use the appropriate tests to answer the questions provided.
 Be sure to:
 
