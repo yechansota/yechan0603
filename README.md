@@ -105,6 +105,7 @@ Number | Age Range
 504    | 70 years and older
 505    | 70 years and older
 Name: age_group, Length: 506, dtype: object
+![image](https://github.com/yechansota/yechan0603/assets/134902281/c43f3c96-43aa-4fad-8ac7-816956c5ae84)
 
 ### Task 4.4: Provide a scatter plot to show the relationship between Nitric oxide concentrations and the proportion of non-retail business acres per town
 ·NOX - nitric oxides concentration (parts per 10 million) --> X
@@ -114,6 +115,7 @@ plt.title('Relationship between Non-Retail Business acres per Town and Nitric Ox
 plt.xlabel('Nitric oxides concentration (parts per 10 million)')
 plt.ylabel('Proportion of non-retail business acres per town')
 plt.show()
+![image](https://github.com/yechansota/yechan0603/assets/134902281/39502d03-96b4-4dee-95dc-cb29d729b3c1)
 
 ### Task 4.5: Create a histogram for the pupil to teacher ratio variable
 ·PTRATIO - pupil-teacher ratio by town --> this seems to be the variable looked for = "pupil to teacher ratio variable"
@@ -124,6 +126,7 @@ plt.ylabel('Frequency')
 plt.title('Frequency Plot of Pupil-Teacher Ratio by Town')
 plt.show()
 Text(0.5, 1.0, 'Frequency Plot of Pupil-Teacher Ratio by Town ')
+![image](https://github.com/yechansota/yechan0603/assets/134902281/3e7bc34d-4d63-4a45-97b2-4e11a25a9f2b)
 
 ### Task 5: Use the appropriate tests to answer the questions provided.
 Be sure to:
@@ -190,6 +193,8 @@ else:
 ### H1: Nitric oxide concentration is correlated with non-retail business acres per town
 import scipy.stats
 import seaborn as sns
+![image](https://github.com/yechansota/yechan0603/assets/134902281/1739a067-f8e3-4d56-afcf-f26b24442d59)
+
 ### Scatter plot of NOX vs INDUS
 ax = sns.scatterplot(x="NOX", y="INDUS", data=boston_df)
 ### Perform Pearson correlation test
